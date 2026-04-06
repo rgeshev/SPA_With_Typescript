@@ -17,15 +17,33 @@ export class APIService<ItemT> {
         return data;
     }
 
-    public async create(): Promise<ItemT[]> {
+    public async create(itemData: ItemT): Promise<ItemT[]> {
         const res = await fetch(this.serviceUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: 
+            body: JSON.stringify(itemData)
         });
         const data = await res.json();
         return data;
+    }
+
+    public async update(id: number, itemData: ItemT): Promise<ItemT[]> {
+        const res = await fetch(`${this.serviceUrl}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(itemData)
+        });
+        const data = await res.json();
+        return data;
+    }
+
+    public async delete(id: number): Promise<void> {
+        await fetch(`${this.serviceUrl}/${id}`, {
+            method: 'DELETE'
+        });
     }
 }
