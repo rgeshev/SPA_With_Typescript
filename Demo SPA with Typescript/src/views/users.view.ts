@@ -8,9 +8,9 @@ export async function renderUsersView() {
     const users = await usersService.getAll();
 
     const template = `
-        <div>
+        <ul>
             ${users.map(user => generateSingleUserHtml(user)).join('')}
-        </div>
+        </ul>
     `;
 
     render(template);

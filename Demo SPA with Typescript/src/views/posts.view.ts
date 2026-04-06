@@ -8,9 +8,9 @@ export async function renderPostsView() {
     const posts = await postsService.getAll();
 
     const template = `
-        <div>
+        <ul>
             ${posts.map(post => generateSinglePostHtml(post)).join('')}
-        </div>
+        </ul>
     `;
 
     render(template);
