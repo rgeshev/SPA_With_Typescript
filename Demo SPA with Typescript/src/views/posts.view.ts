@@ -4,7 +4,7 @@ import { render } from "../utils/html";
 
 const postsService = new PostsService();
 
-export async function renderPostsView() {
+export async function renderPostsView(): Promise<void> {
     const posts = await postsService.getAll();
 
     const template = `
@@ -17,7 +17,7 @@ export async function renderPostsView() {
 
 };
 
-function generateSinglePostHtml(post: Post) {
+function generateSinglePostHtml(post: Post): string {
     return `
         <li>
             <h3>${post.title}</h3>
