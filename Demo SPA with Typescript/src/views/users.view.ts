@@ -1,8 +1,6 @@
 import type { User } from "../interfaces/user.interface";
-import { UsersService } from "../services/users.service";
 import { render } from "../utils/html";
-
-const usersService = new UsersService();
+import { usersService } from "../services/services";
 
 export async function renderUsersView(): Promise<void> {
     const users = await usersService.getAll();

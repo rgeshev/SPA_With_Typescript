@@ -1,8 +1,6 @@
-import { PostsService } from "../services/posts.service";
 import type { Post } from "../interfaces/post.interface";
 import { render } from "../utils/html";
-
-const postsService = new PostsService();
+import { postsService } from "../services/services";
 
 export async function renderPostsView(): Promise<void> {
     const posts = await postsService.getAll();

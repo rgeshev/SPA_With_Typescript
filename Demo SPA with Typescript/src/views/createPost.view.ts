@@ -1,7 +1,5 @@
-import { PostsService } from "../services/posts.service";
 import { render } from "../utils/html";
-
-const postsService = new PostsService();
+import { postsService } from "../services/services";
 
 export async function renderCreatePostView() {
     const template = `
