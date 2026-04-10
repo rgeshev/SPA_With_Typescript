@@ -2,8 +2,14 @@ export function Log(target: object, methodName: string, descriptor: PropertyDesc
     const originalMethod = descriptor.value;
 
     descriptor.value = function(...args: any[]) {
-        console.log(`Method ${methodName} called!`);
+        const start = performance.now()
         const result = originalMethod.call(this, ...args);
+        const end = performance.now();
+
+        const timeInMs = end - start;
+
+        console.log(`Method ${methodName} executed in ${timeInMs}ms!`);
+
         return result;
     }
 
