@@ -27,7 +27,7 @@ export async function renderCreatePostView() {
             const title = formData.get('title') as string;
             const body = formData.get('body') as string;
 
-            const result = await postsService.create({ title, body, id: 1, userId: 1 });
+            const result = await postsService.create({ title, body, userId: 1 });
             console.log(result);
         });
     }

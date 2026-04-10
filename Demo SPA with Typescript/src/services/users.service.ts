@@ -1,8 +1,8 @@
 import { BASE_URL } from "../constants";
-import type { User } from "../interfaces/user.interface";
+import type { CreateUser, User } from "../interfaces/user.interface";
 import { APIService } from "./api";
 
-export class UsersService extends APIService<User> {
+export class UsersService extends APIService<User, CreateUser> {
     constructor() {
         super(`${BASE_URL}/users`);
     }

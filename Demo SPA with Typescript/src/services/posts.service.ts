@@ -1,8 +1,8 @@
 import { BASE_URL } from "../constants";
-import type { Post } from "../interfaces/post.interface";
+import type { CreatePost, Post } from "../interfaces/post.interface";
 import { APIService } from "./api";
 
-export class PostsService extends APIService<Post> {
+export class PostsService extends APIService<Post, CreatePost> {
     constructor() {
         super(`${BASE_URL}/posts`);
     }
