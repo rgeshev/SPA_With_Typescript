@@ -13,33 +13,42 @@ const routes: Routes = {
 const router = new Router(routes)
 
 function setupNavLinks() {
-    const postsLinkEl = document.getElementById('posts-link');
-    const createPostLinkEl = document.getElementById('create-post-link')
-    const usersLinkEl = document.getElementById('users-link');
+    const linkEls = document.querySelectorAll('nav a');
 
-    if (postsLinkEl) {
-        postsLinkEl.addEventListener('click', e => {
+    linkEls.forEach(linkEl => {
+        linkEl.addEventListener('click', e => {
             e.preventDefault();
-
-            router.navigate('/posts');
+            router.navigate((e.target as HTMLAnchorElement).pathname)
         })
-    };
+    })
 
-    if (createPostLinkEl) {
-        createPostLinkEl.addEventListener('click', e => {
-            e.preventDefault();
+    // const postsLinkEl = document.getElementById('posts-link');
+    // const createPostLinkEl = document.getElementById('create-post-link')
+    // const usersLinkEl = document.getElementById('users-link');
 
-            router.navigate('/posts/create');
-        })
-    };
+    // if (postsLinkEl) {
+    //     postsLinkEl.addEventListener('click', e => {
+    //         e.preventDefault();
 
-    if (usersLinkEl) {
-        usersLinkEl.addEventListener('click', e => {
-            e.preventDefault();
+    //         router.navigate('/posts');
+    //     })
+    // };
 
-            router.navigate('/users');
-        })
-    };
+    // if (createPostLinkEl) {
+    //     createPostLinkEl.addEventListener('click', e => {
+    //         e.preventDefault();
+
+    //         router.navigate('/posts/create');
+    //     })
+    // };
+
+    // if (usersLinkEl) {
+    //     usersLinkEl.addEventListener('click', e => {
+    //         e.preventDefault();
+
+    //         router.navigate('/users');
+    //     })
+    // };
 }
 
 
