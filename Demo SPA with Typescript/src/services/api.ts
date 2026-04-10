@@ -1,3 +1,5 @@
+import { Log } from "../decorators/logs";
+
 export class APIService<ItemT> {
     private serviceUrl: string;
 
@@ -5,6 +7,7 @@ export class APIService<ItemT> {
         this.serviceUrl = serviceUrl;
     }
 
+    @Log
     public async getAll(): Promise<ItemT[]> {
         const res = await fetch(this.serviceUrl);
         const data = await res.json();
@@ -17,6 +20,7 @@ export class APIService<ItemT> {
         return data;
     }
 
+    @Log
     public async create(itemData: ItemT): Promise<ItemT[]> {
         const res = await fetch(this.serviceUrl, {
             method: 'POST',
